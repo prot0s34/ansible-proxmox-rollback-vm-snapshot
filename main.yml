@@ -1,0 +1,21 @@
+---
+- hosts: pve01
+  vars:
+    vm01id: 106
+    vm02id: 107
+    vm03id: 108
+    vm04id: 109
+    snapshoot_name: lab
+  tasks:
+  - name: Rollback LAB-VM01
+    command: qm rollback "{{ vm01id }}" "{{ snapshoot_name }}"
+    tags: vm01
+  - name: Rollback LAB-VM02
+    command: qm rollback "{{ vm02id }}" "{{ snapshoot_name }}"
+    tags: vm02
+  - name: Rollback LAB-VM03
+    command: qm rollback "{{ vm03id }}" "{{ snapshoot_name }}"
+    tags: vm03
+  - name: Rollback LAB-VM04
+    command: qm rollback "{{ vm04id }}" "{{ snapshoot_name }}"
+    tags: vm04
